@@ -7,16 +7,13 @@ int main(){
 	char deleteC;
 	printf("Moi nhap vao ky tu bat ki: ");	scanf("%c",&deleteC);
 	
-	int size = strlen(str);
-	for(int i=0;i<size;i++){
-		if(str[i] == deleteC){
-			for(int j=i;j<size-1;j++){
-				str[j] = str[j+1];
-				if(j == size-2)	str[j+1]='\0';
-			}
+	int j=0;
+	for(int i=0;i<strlen(str);i++){
+		if(str[i] != deleteC){
+			str[j++] = str[i];
 		}
-		if(i == 0 && str[i]>=97 && str[i]<=122)	str[i] -= 32;
-		else if(str[i] == ' ' && str[i+1]>=97 && str[i+1]<=122)	str[i+1] -=32;
 	}
+	str[j]='\0';
+	
 	printf("%s",str);
 }
